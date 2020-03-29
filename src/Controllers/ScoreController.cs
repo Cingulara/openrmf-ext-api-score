@@ -19,9 +19,9 @@ namespace openrmf_ext_api_score.Controllers
         }
 
         /// <summary>
-        /// POST Called from the OpenRMF UI (or external access) to generate the score of a checklist for the 
-        /// category 1, 2, 3 items based on status. This is called from the Template page OR called from any 
-        /// checklist listing where the score is currently empty for some reason.
+        /// POST Called from the external to the OpenRMF UI to generate the score of a checklist for the 
+        /// category 1, 2, 3 items based on status. This is probably called through an API Gateway 
+        /// (i.e. Kong or Gloo) to get back data externally using OpenRMF.
         /// </summary>
         /// <param name="rawChecklist">The actual CKL file text to parse</param>
         /// <returns>
@@ -30,14 +30,13 @@ namespace openrmf_ext_api_score.Controllers
         /// <response code="200">Returns the score generated for the checklist data passed in</response>
         /// <response code="400">If the item did not generate correctly, or if the CKL data was invalid</response>
         [HttpPost]
-        [Authorize(Roles = "Administrator,Reader,Editor,Assessor")]
         public IActionResult Score (string rawChecklist){
             try {
-                _logger.LogInformation("Calling Score() with a raw Checklist XML data");
+                _logger.LogInformation("Calling External Score() with a raw Checklist XML data");
                 return Ok(ScoringEngine.ScoreChecklistString(rawChecklist));
             }
             catch (Exception ex) {
-                _logger.LogError(ex, "Score() Error creating Score for XML string passed in");
+                _logger.LogError(ex, "Score() Error creating External Score for XML string passed in");
                 return BadRequest();
             }
         }

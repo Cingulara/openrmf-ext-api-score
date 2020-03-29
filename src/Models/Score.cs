@@ -11,7 +11,9 @@ namespace openrmf_ext_api_score.Models
     public class Score
     {
 
-        public Score () {        }
+        public Score () { 
+            created = DateTime.Now;
+        }
 
         public string systemGroupId { get; set; }
         public string hostName { get; set;}
@@ -25,12 +27,6 @@ namespace openrmf_ext_api_score.Models
         }}
         
         public DateTime created { get; set; }
-
-        // attribute to gain control on datetime serialization
-        public DateTime? updatedOn { get; set; }
-        public Guid createdBy { get; set; }
-        public Guid? updatedBy { get; set; }
-
 
         public int totalCat1Open { get; set; }
         public int totalCat1NotApplicable { get; set; }
