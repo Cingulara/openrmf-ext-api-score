@@ -129,3 +129,5 @@ See https://docs.konghq.com/2.0.x/getting-started/configuring-a-service/.
 Services: https://docs.konghq.com/2.0.x/admin-api/#add-service
 
 Routes: https://docs.konghq.com/2.0.x/admin-api/#add-route
+
+Rate Limiting: https://docs.konghq.com/hub/kong-inc/rate-limiting/ could also be included
