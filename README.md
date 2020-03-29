@@ -104,6 +104,19 @@ You will need to add the header "openrmf-ext-key" for the config name we added a
 
 ![Image](./img/Calling-Kong-API-Key-Auth.png?raw=true)
 
+To enable the ACL Plugin you would do the following which allows the group to use it:
+```
+curl -X POST http://localhost:8001/routes/openrmf-ext-api-score-route/plugins \
+    --data "name=acl"  \
+    --data "config.whitelist=openrmf-ext-score" \
+    --data "config.hide_groups_header=true"
+```
+
+Then you need to add the consumer we made above to the group, otherwise you get the "you cannot consume this service" message:
+```
+curl -X POST http://localhost:8001/consumers/cingulara/acls \
+    --data "group=openrmf-ext-score"
+```
 
 ### Calling the API behind Kong API Gateway
 
