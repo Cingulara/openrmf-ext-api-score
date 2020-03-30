@@ -1,5 +1,7 @@
+![.NET Core Master](https://github.com/Cingulara/openrmf-ext-api-score/workflows/.NET%20Core%20Master/badge.svg?branch=master)
+
 # OpenRMF-ext-api-score
-This is the OpenRMF Score API that is used for integration with external applications. THis is a proof of concept using Kong API Gateway calling a service within OpenRMF that performs a function. You must setup Kong API Gateway for this, and include the ACL and Key-Auth plugins for it to work correctly for security sake.
+This is the OpenRMF Score API that is used for integration with external applications. This is a proof-of-concept using Kong API Gateway calling a service within OpenRMF that performs a function. You must setup Kong API Gateway for this, and include the ACL and Key-Auth plugins for it to work correctly for security sake.
 
 ## API Calls
 POST to / with the field rawChecklist having the raw XML of a checklist gives a score with your data if it is a valid checklist file.
@@ -14,6 +16,8 @@ docker build --rm -t openrmf-ext-api-score:0.13.01 .
 If Kong API GW is loaded (see https://github.com/Cingulara/openrmf-docs for more information on running locally) you can setup a backend service to point to this API. And then setup a route with plug-ins for external applications to call it. 
 
 For this Kong API Gateway I am going to use the command line and the Kong API Gateway OSS version. If you use the Enterprise version this is _A LOT_ easier. Or you can use one of the free GUIs like Konga https://github.com/pantsel/konga/blob/master/README.md#compatibility or https://github.com/pocketdigi/kong-admin-ui. 
+
+The https://github.com/Cingulara/openrmf-docs repo has a scripts directory with a docker-compose.yml in the kongapigw folder to run this locally. There are commands below to showcase how to do this.
 
 ### Setup the Service (backend) using the Kong Admin API
 ```
