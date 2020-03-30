@@ -18,6 +18,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build src/ --configuration Debug --no-restore
+      run: dotnet build src/ --configuration Debug 
     - name: Test
       run: dotnet test src/ --no-restore --verbosity normal
