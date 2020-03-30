@@ -1,3 +1,5 @@
+![.NET Core Master](https://github.com/Cingulara/openrmf-ext-api-score/workflows/.NET%20Core%20Master/badge.svg?branch=master)
+
 # OpenRMF-ext-api-score
 This is the OpenRMF Score API that is used for integration with external applications. This is a proof-of-concept using Kong API Gateway calling a service within OpenRMF that performs a function. You must setup Kong API Gateway for this, and include the ACL and Key-Auth plugins for it to work correctly for security sake.
 
