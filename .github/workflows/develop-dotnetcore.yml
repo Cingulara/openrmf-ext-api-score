@@ -1,4 +1,4 @@
-name: .NET Core
+name: OpenRMF dotnet Core Build and Test
 
 on: [push]
 
